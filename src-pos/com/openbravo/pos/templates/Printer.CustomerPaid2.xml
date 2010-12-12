@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <output>
-    
+
     <display>
         <line>
             <text align="left" length="10">Totali paguar.</text>
@@ -10,5 +10,5 @@
             <text align="center" length="20">Faleminderit.</text>
         </line>
     </display>
-    
+
 </output>

@@ -36,7 +36,8 @@
         submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.InventoryBroken", "/com/openbravo/reports/inventorybroken.bs");
         submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.InventoryDiff", "/com/openbravo/reports/inventorydiff.bs");
         submenu.addPanel("/com/openbravo/images/fileprint.png", "Menu.Supply", "com.openbravo.pos.panels.JPanelSupplyReport");
-    submenu = group.addSubmenu("/com/openbravo/images/contents.png", "Menu.SalesManagement", "com.openbravo.pos.forms.MenuSalesManagement");
+        submenu.addPanel("/com/openbravo/images/important.png", "Menu.InventoryProblemReport", "com.openbravo.pos.panels.JPanelInventoryProblem");
+        submenu = group.addSubmenu("/com/openbravo/images/contents.png", "Menu.SalesManagement", "com.openbravo.pos.forms.MenuSalesManagement");
         submenu.addTitle("Menu.SalesManagement.Reports");
         submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.UserSells", "/com/openbravo/reports/usersales.bs");
         submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.ClosedProducts", "/com/openbravo/reports/closedproducts.bs");
@@ -44,7 +45,7 @@
         submenu.addPanel("/com/openbravo/images/cakes3d.png", "Menu.SalesChart", "/com/openbravo/reports/chartsales.bs");
         submenu.addPanel("/com/openbravo/images/cakes3d.png", "Menu.ProductSales", "/com/openbravo/reports/productsales.bs");
     submenu = group.addSubmenu("/com/openbravo/images/contents.png", "Menu.Maintenance", "com.openbravo.pos.forms.MenuMaintenance");
-        submenu.addTitle("Menu.Maintenance.POS");        
+        submenu.addTitle("Menu.Maintenance.POS");
         submenu.addPanel("/com/openbravo/images/kdmconfig.png", "Menu.Users", "com.openbravo.pos.admin.PeoplePanel");
         submenu.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Roles", "com.openbravo.pos.admin.RolesPanel");
         submenu.addPanel("/com/openbravo/images/clipart.png", "Menu.Resources", "com.openbravo.pos.admin.ResourcesPanel");
@@ -53,7 +54,7 @@
         submenu.addPanel("/com/openbravo/images/bookmark.png", "Menu.Tables", "com.openbravo.pos.mant.JPanelPlaces");
         submenu.addTitle("Menu.Maintenance.Reports");
         submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.UsersReport", "/com/openbravo/reports/people.bs");
-        submenu.addTitle("Menu.Maintenance.ERP");        
+        submenu.addTitle("Menu.Maintenance.ERP");
         submenu.addExecution("/com/openbravo/images/openbravo.png", "Menu.ERPProducts", "com.openbravo.possync.ProductsSyncCreate");
         submenu.addExecution("/com/openbravo/images/openbravo.png", "Menu.ERPOrders", "com.openbravo.possync.OrdersSyncCreate");
     group = menu.addGroup("Menu.System");
