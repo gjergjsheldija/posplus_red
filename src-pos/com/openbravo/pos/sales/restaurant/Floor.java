@@ -91,7 +91,7 @@ public class Floor implements SerializableRead {
         
         public Dimension getPreferredSize() {
             return (img == null) 
-                ? new Dimension(640, 480) 
+                ? new Dimension(1000, 800)
                 : new Dimension(img.getWidth(this), img.getHeight(this));
         }
         public Dimension getMinimumSize() {
