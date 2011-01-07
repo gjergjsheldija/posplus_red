@@ -68,8 +68,8 @@ public class CategoriesEditor extends JPanel implements EditorRecord {
         
         m_jName.getDocument().addDocumentListener(dirty);
         m_jCategory.addActionListener(dirty);
-        m_jCategory.setVisible(false);
-        jLabel5.setVisible(false);
+        m_jCategory.setVisible(true);
+        jLabel5.setVisible(true);
         m_jImage.addPropertyChangeListener("image", dirty);
         
         writeValueEOF();
