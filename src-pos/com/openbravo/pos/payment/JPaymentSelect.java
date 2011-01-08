@@ -128,7 +128,8 @@ public abstract class JPaymentSelect extends javax.swing.JDialog
     protected abstract PaymentInfo getDefaultPayment(double total);
     
     protected void setOKEnabled(boolean value) {
-        m_jButtonOK.setEnabled(value);        
+        m_jButtonOK.setEnabled(value);
+        m_jButtonOK.setFocusable(value);
     }
     
     protected void setAddEnabled(boolean value) {

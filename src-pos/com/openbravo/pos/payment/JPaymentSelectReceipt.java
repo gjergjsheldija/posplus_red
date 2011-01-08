@@ -64,7 +64,7 @@ public class JPaymentSelectReceipt extends JPaymentSelect {
     protected void setStatusPanel(boolean isPositive, boolean isComplete) {
         
         setAddEnabled(isPositive && !isComplete);
-        setOKEnabled(isComplete);
+        setOKEnabled(isPositive);
     }
     
     protected PaymentInfo getDefaultPayment(double total) {
