@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <output>
-     
+
     <display>
         <line>
             <text align="left" length="10">Totali</text>
@@ -16,55 +16,55 @@
         <line></line>
         <line>
             <text align="left" length="15">Fatura:</text>
-        #if (${ticket.ticketType} == 0)
-        <line>
-            <text align="left" length="15">Fatura:</text>
-            <text>${ticket.printId()}</text>
-        </line>    
-        #end
-        #if (${ticket.ticketType} == 1)
-        <line>
-            <text align="left" length="15">Kthim:</text>
-            <text>${ticket.printId()}</text>
+            #if (${ticket.ticketType} == 0)
+            <line>
+                <text align="left" length="15">Fatura:</text>
+                <text>${ticket.printTemporaryId()}</text>
+            </line>
+            #end
+            #if (${ticket.ticketType} == 1)
+            <line>
+                <text align="left" length="15">Kthim:</text>
+                <text>${ticket.printId()}</text>
+            </line>
+            #end
         </line>
-        #end
-
         <line>
             <text align="left" length="15">Data:</text>
             <text>${ticket.printDate()}</text>
-        </line>  
-        
+        </line>
+
          #if ($ticket.getCustomer())
         <line>
             <text align="left" length="15">Klienti:</text>
             <text>${ticket.getCustomer().getName()}</text>
-        </line>      
+        </line>
         <line>
             <text align="left" length="15"></text>
             <text>${ticket.getCustomer().getTaxid()}</text>
-        </line>  
+        </line>
         #end
-        
+
         #if ($place != "")
         <line>
             <text align="left" length="15">Tavolina:</text>
             <text>${place}</text>
-        </line>  
+        </line>
         #end
-        <line></line>    
+        <line></line>
         <line>
             <text align ="left" length="17">Artikulli</text>
             <text align ="right" length="10">Cmimi</text>
             <text align ="right" length="5"></text>
             <text align ="right" length="10">Vlera</text>
-        </line>      
+        </line>
         <line>
              <text>------------------------------------------</text>
-        </line>   
+        </line>
 
         #foreach ($ticketline in $ticket.getLines())
         <line>
-             #if ($ticketline.isProductCom()) 
+             #if ($ticketline.isProductCom())
                  <text align ="left" length="17">*${ticketline.printName()}</text>
              #else
                  <text align ="left" length="17">${ticketline.printName()}</text>
@@ -72,130 +72,130 @@
             <text align ="right" length="10">${ticketline.printPrice()}</text>
             <text align ="right" length="5">x${ticketline.printMultiply()}</text>
             <text align ="right" length="10">${ticketline.printSubValue()}</text>
-        </line> 
+        </line>
         #end
 
         <line>
              <text>------------------------------------------</text>
-        </line>   
+        </line>
         <line>
             <text>Artikuj: </text>
             <text align ="right" length="10">${ticket.printArticlesCount()}</text>
-        </line> 
-        <line></line> 
+        </line>
+        <line></line>
         <line>
             <text align ="left" length="16">Nentotali</text>
             <text align ="right" length="20">${ticket.printSubTotal()}</text>
-        </line> 
-        <line></line> 
+        </line>
+        <line></line>
         <line size="1">
             <text align ="left" length="16" bold="true">Totali</text>
             <text align ="right" length="20" bold="true">${ticket.printTotal()}</text>
-        </line>    
+        </line>
 
-        #foreach ($paymentline in $ticket.payments)      
+        #foreach ($paymentline in $ticket.payments)
          #if ($paymentline.name == "cash")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Cash</text>
-        </line>  
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>     
+        </line>
          #end
          #if ($paymentline.name == "cashrefund")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Kthyer</text>
          </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "magcard")
-        <line></line>        
+        <line></line>
         <line>
             <text bold="true">Bankomat</text>
-        </line>   
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>  
-         #end  
+        </line>
+         #end
          #if ($paymentline.name == "magcardrefund")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Kthim Bankomat</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "cheque")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Qek</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "chequerefund")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Kthim Qek</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "paperin")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Shenim</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "paperout")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Kthim shenim</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "free")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Falas</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
+        </line>
          #end
          #if ($paymentline.name == "debt")
-        <line></line>     
+        <line></line>
         <line>
             <text bold="true">Borxh</text>
-        </line>    
+        </line>
         <line>
             <text align ="right" length="42">${paymentline.printTotal()}</text>
-        </line>    
-         #end 
-         #end 
-        
-        <line></line>  
+        </line>
+         #end
+         #end
+
+        <line></line>
         <line>
             <text align="left" length="15">Shitesi:</text>
             <text>${ticket.printUser()}</text>
-        </line> 
-        
-        <line></line>            
+        </line>
+
+        <line></line>
         <line>
             <text align="center" length="42">Faleminderit per zgjedhjen tuaj.</text>
-        </line>    
+        </line>
     </ticket>
 
 </output>
