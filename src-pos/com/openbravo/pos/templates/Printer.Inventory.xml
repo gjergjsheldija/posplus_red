@@ -17,9 +17,9 @@
         </line>
         <line size="1">
             #if ($inventoryrecord.isInput())
-            <text align ="center" length="42">In</text>
+            <text align ="center" length="42">Hyrje</text>
             #else
-            <text align ="center" length="42">Out</text>
+            <text align ="center" length="42">Dalje</text>
             #end
         </line>
 
@@ -37,9 +37,17 @@
         #foreach ($inventoryline in $inventoryrecord.getLines())
         <line>
             <text align ="left" length="17">${inventoryline.printName()}</text>
-            <text align ="right" length="10">${inventoryline.printPrice()}</text>
+            #if ($inventoryrecord.isInput())
+            	<text align ="right" length="10">${inventoryline.printPriceSell()}</text>
+            #else
+                <text align ="right" length="10">${inventoryline.printPrice()}</text>
+            #end
             <text align ="right" length="5">x${inventoryline.printMultiply()}</text>
-            <text align ="right" length="10">${inventoryline.printSubValue()}</text>
+            #if ($inventoryrecord.isInput())
+	        <text align ="right" length="10">${inventoryline.printSubValueSell()}</text>
+            #else
+                <text align ="right" length="10">${inventoryline.printSubValue()}</text>
+            #end
         </line>
         #end
 

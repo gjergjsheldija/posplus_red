@@ -154,8 +154,8 @@ public class StockManagement extends JPanel implements JPanelView {
         }        
     }    
 
-    private void addLine(ProductInfoExt oProduct, double dpor, double dprice) {
-        m_invlines.addLine(new InventoryLine(oProduct, dpor, dprice));
+    private void addLine(ProductInfoExt oProduct, double dpor, double dprice, double dpricesell) {
+        m_invlines.addLine(new InventoryLine(oProduct, dpor, dprice, dpricesell));
     }
     
     private void deleteLine(int index) {
@@ -168,7 +168,8 @@ public class StockManagement extends JPanel implements JPanelView {
     
     private void incProduct(double dPor, ProductInfoExt prod) {
         // precondicion: prod != null
-        addLine(prod, dPor, prod.getPriceBuy());    
+        m_jLocation.getItemAt(0);
+        addLine(prod, dPor, prod.getPriceBuy(), prod.getPriceSell());
     }
     
     private void incProductByCode(String sCode) {

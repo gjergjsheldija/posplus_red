@@ -29,6 +29,7 @@ public class InventoryLine {
     
     private double m_dMultiply;    
     private double m_dPrice;
+    private double m_dPriceSell;
     
     private String m_sProdID;
     private String m_sProdName;
@@ -39,13 +40,15 @@ public class InventoryLine {
         m_sProdName = oProduct.getName();
         m_dMultiply = 1.0;
         m_dPrice = oProduct.getPriceBuy();
+        m_dPriceSell = oProduct.getPriceSell();
     }
     
-    public InventoryLine(ProductInfoExt oProduct, double dpor, double dprice) {
+    public InventoryLine(ProductInfoExt oProduct, double dpor, double dprice, double dpricesell) {
         m_sProdID = oProduct.getID();
         m_sProdName = oProduct.getName();
         m_dMultiply = dpor;
         m_dPrice = dprice;
+        m_dPriceSell = dpricesell;
     }
     
     public String getProductID() {
@@ -72,12 +75,24 @@ public class InventoryLine {
         return m_dPrice;
     }
     
+    public double getPriceSell() {
+        return m_dPriceSell;
+    }
+
     public void setPrice(double dValue) {
         m_dPrice = dValue;
     }    
     
+    public void setPriceSell(double dValue) {
+        m_dPriceSell = dValue;
+    }
+
     public double getSubValue() {
         return m_dMultiply * m_dPrice;
+    }
+
+    public double getSubValueSell() {
+        return m_dMultiply * m_dPriceSell;
     }
     
     public String printName() {
@@ -92,6 +107,15 @@ public class InventoryLine {
         }
     }
     
+
+    public String printPriceSell() {
+        if (m_dMultiply == 1.0) {
+            return "";
+        } else {
+            return Formats.CURRENCY.formatValue(new Double(getPriceSell()));
+        }
+    }
+
     public String printMultiply() {
         return Formats.DOUBLE.formatValue(new Double(m_dMultiply));
     }
@@ -99,5 +123,8 @@ public class InventoryLine {
     public String printSubValue() {
         return Formats.CURRENCY.formatValue(new Double(getSubValue()));
     }
-    
+
+    public String printSubValueSell() {
+        return Formats.CURRENCY.formatValue(new Double(getSubValueSell()));
+    }
 }
