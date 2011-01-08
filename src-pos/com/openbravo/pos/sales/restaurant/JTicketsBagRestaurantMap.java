@@ -433,8 +433,9 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
                            new MessageInf(e).show(JTicketsBagRestaurantMap.this); // Glup. But It was empty.
                         }
 
+                        //each waiter has his own table
                         if(!app.getAppUserView().getUser().hasPermission("sales.EditTicket")) {
-                            if(! userID.equals("")) {
+                            if(!userID.equals("")) {
                                 if(!userID.equals(app.getAppUserView().getUser().getUserInfo().getId())) {
                                     new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.tablefull")).show(JTicketsBagRestaurantMap.this);
                                     m_place.setPeople(true);
