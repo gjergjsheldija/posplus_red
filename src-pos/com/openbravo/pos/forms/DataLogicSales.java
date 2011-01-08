@@ -108,7 +108,7 @@ public abstract class DataLogicSales extends BeanFactoryDataSingle {
     public final List<ProductInfoExt> getProductCatalog(String category) throws BasicException  {
         return new PreparedSentence(s
             , "SELECT P.ID, P.REFERENCE, P.CODE, P.NAME, P.ISCOM, P.ISSCALE, P.PRICEBUY, P.PRICESELL, TC.ID, TC.NAME, P.CATEGORY, P.IMAGE, P.ATTRIBUTES, P.PRICESELL2 " +
-              "FROM PRODUCTS P LEFT OUTER JOIN TAXCATEGORIES TC ON P.TAXCAT = TC.ID LEFT OUTER JOIN CATEGORIES C ON P.CATEGORY = C.ID, PRODUCTS_CAT O WHERE P.CODE = '' AND  P.ID = O.PRODUCT AND P.CATEGORY = ?" +
+              "FROM PRODUCTS P LEFT OUTER JOIN TAXCATEGORIES TC ON P.TAXCAT = TC.ID LEFT OUTER JOIN CATEGORIES C ON P.CATEGORY = C.ID, PRODUCTS_CAT O WHERE P.ID = O.PRODUCT AND P.CATEGORY = ?" +
               "ORDER BY C.NAME, O.CATORDER, P.REFERENCE"
             , SerializerWriteString.INSTANCE
             , new SerializerReadClass(ProductInfoExt.class)).list(category);
