@@ -412,6 +412,17 @@ public class TicketInfo implements SerializableRead, Externalizable {
         }
     }
 
+    public String printTemporaryId() {
+
+        StringBuffer tempId = new StringBuffer();
+        String temp = m_sId;
+
+        temp = temp.substring(0,6);
+
+        tempId.append(temp + "-" + Formats.TIMESTAMP.formatValue(m_dDate));
+        return tempId.toString();
+    }
+
     public String printDate() {
         return Formats.TIMESTAMP.formatValue(m_dDate);
     }
