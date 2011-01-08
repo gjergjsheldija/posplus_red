@@ -421,7 +421,7 @@ public class StockManagement extends JPanel implements JPanelView {
         jPanel3.add(jLabel1);
         jLabel1.setBounds(10, 30, 150, 15);
         jPanel3.add(m_jdate);
-        m_jdate.setBounds(160, 30, 200, 19);
+        m_jdate.setBounds(160, 30, 200, 25);
 
         m_jbtndate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/date.png"))); // NOI18N
         m_jbtndate.addActionListener(new java.awt.event.ActionListener() {
@@ -430,7 +430,7 @@ public class StockManagement extends JPanel implements JPanelView {
             }
         });
         jPanel3.add(m_jbtndate);
-        m_jbtndate.setBounds(370, 30, 40, 26);
+        m_jbtndate.setBounds(370, 30, 40, 28);
 
         jLabel2.setText(AppLocal.getIntString("label.stockreason")); // NOI18N
         jPanel3.add(jLabel2);
@@ -444,7 +444,7 @@ public class StockManagement extends JPanel implements JPanelView {
         jPanel3.add(m_jreason);
         m_jreason.setBounds(160, 60, 200, 20);
 
-        jLabel8.setText(AppLocal.getIntString("label.warehouse")); // NOI18N
+        jLabel8.setText(AppLocal.getIntString("label.from")); // NOI18N
         jPanel3.add(jLabel8);
         jLabel8.setBounds(10, 90, 150, 15);
         jPanel3.add(m_jLocation);
@@ -461,7 +461,7 @@ public class StockManagement extends JPanel implements JPanelView {
             }
         });
         jPanel3.add(m_jDelete);
-        m_jDelete.setBounds(430, 260, 56, 44);
+        m_jDelete.setBounds(430, 260, 62, 50);
 
         m_jUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/1uparrow22.png"))); // NOI18N
         m_jUp.setFocusPainted(false);
@@ -474,7 +474,7 @@ public class StockManagement extends JPanel implements JPanelView {
             }
         });
         jPanel3.add(m_jUp);
-        m_jUp.setBounds(430, 160, 56, 44);
+        m_jUp.setBounds(430, 160, 62, 50);
 
         m_jDown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/1downarrow22.png"))); // NOI18N
         m_jDown.setFocusPainted(false);
@@ -487,13 +487,13 @@ public class StockManagement extends JPanel implements JPanelView {
             }
         });
         jPanel3.add(m_jDown);
-        m_jDown.setBounds(430, 210, 56, 44);
+        m_jDown.setBounds(430, 210, 62, 50);
 
         jPanel5.setLayout(new java.awt.BorderLayout());
         jPanel3.add(jPanel5);
         jPanel5.setBounds(10, 160, 410, 190);
 
-        jLabel9.setText(AppLocal.getIntString("label.warehouse")); // NOI18N
+        jLabel9.setText(AppLocal.getIntString("label.to")); // NOI18N
         jPanel3.add(jLabel9);
         jLabel9.setBounds(10, 120, 150, 15);
         jPanel3.add(m_jLocationDes);
