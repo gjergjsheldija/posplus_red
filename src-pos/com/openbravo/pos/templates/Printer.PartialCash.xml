@@ -7,7 +7,7 @@
         </line>
         <line></line>
         <line>
-            <text bold="true">Raporti i Pagesave</text>
+            <text bold="true" length="42">Raporti i Pagesave</text>
         </line>
         <line>
             <text align ="right" length="42">Totali</text>
@@ -67,6 +67,10 @@
             <text align ="right" length="10" bold="true">${payments.printSalesTotal()}</text>
         </line>
         <line></line>
+        <line>
+            <text length="18">Perdoruesi:</text>
+            <text>${payments.printUserName()}</text>
+        </line>
         <line>
             <text length="18">Arka:</text>
             <text>${payments.printHost()}</text>
