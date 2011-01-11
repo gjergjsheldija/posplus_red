@@ -15,7 +15,6 @@
         <image>Printer.Ticket.Logo</image>
         <line></line>
         <line>
-            <text align="left" length="15">Fatura:</text>
             #if (${ticket.ticketType} == 0)
             <line>
                 <text align="left" length="15">Fatura:</text>
@@ -61,7 +60,6 @@
         <line>
              <text>------------------------------------------</text>
         </line>
-
         #foreach ($ticketline in $ticket.getLines())
         <line>
              #if ($ticketline.isProductCom())
@@ -74,7 +72,6 @@
             <text align ="right" length="10">${ticketline.printSubValue()}</text>
         </line>
         #end
-
         <line>
              <text>------------------------------------------</text>
         </line>
