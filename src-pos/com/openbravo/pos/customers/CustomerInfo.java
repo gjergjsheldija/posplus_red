@@ -31,6 +31,8 @@ public class CustomerInfo implements Serializable {
     protected String searchkey;
     protected String taxid;
     protected String name;
+    protected String address;
+    protected String notes;
     
     /** Creates a new instance of UserInfoBasic */
     public CustomerInfo(String id) {
@@ -66,6 +68,22 @@ public class CustomerInfo implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
     
     @Override
