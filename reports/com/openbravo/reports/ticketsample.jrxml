@@ -2,9 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticketsample" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
-	<property name="ireport.zoom" value="1.464100000000001"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="4.594972986357225"/>
+	<property name="ireport.x" value="1022"/>
+	<property name="ireport.y" value="923"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -121,7 +121,7 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="120" splitType="Stretch">
+		<band height="114" splitType="Stretch">
 			<textField isBlankWhenNull="false">
 				<reportElement key="textField-4" x="100" y="1" width="170" height="19">
 					<printWhenExpression><![CDATA[Boolean.valueOf($F{TICKET}.getCustomer() != null)]]></printWhenExpression>
@@ -167,25 +167,58 @@ net.sf.jasperreports.engine.xml.JRXmlLoader.load(getClass().getResourceAsStream(
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band splitType="Stretch"/>
+		<band height="25" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="164" height="25"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="3of9" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{TICKET}.printId()]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-3" x="377" y="10" width="156" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{TICKET}.printDate()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="9" width="29" height="16"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="9" width="33" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="259" y="9" width="14" height="16"/>
+				<textElement/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="97" splitType="Stretch">
+		<band height="105" splitType="Stretch">
 			<rectangle>
-				<reportElement key="rectangle-3" x="0" y="11" width="535" height="19" backcolor="#DCDCDC"/>
+				<reportElement key="rectangle-3" x="0" y="1" width="535" height="19" backcolor="#DCDCDC"/>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
 				</graphicElement>
 			</rectangle>
 			<textField isBlankWhenNull="false">
-				<reportElement key="textField-7" x="347" y="11" width="188" height="19"/>
+				<reportElement key="textField-7" x="347" y="1" width="188" height="19"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{TICKET}.printTotal()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement key="staticText-9" x="187" y="11" width="160" height="19"/>
+				<reportElement key="staticText-9" x="187" y="1" width="160" height="19"/>
 				<textElement>
 					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
