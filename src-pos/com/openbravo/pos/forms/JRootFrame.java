@@ -91,7 +91,12 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
                             + "Per me shume kontaktoni : info@acme-tech.net",
                             "Informacion rreth licenses",
                     javax.swing.JOptionPane.DEFAULT_OPTION);
-                }else if(execTimes == 0) {
+                }else if(execTimes == 0 || execTimes < 0) {
+                    javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null,
+                            "Programi ka skaduar!\n"
+                            + "Per me shume kontaktoni : info@acme-tech.net",
+                            "Informacion rreth licenses",
+                    javax.swing.JOptionPane.DEFAULT_OPTION);
                     m_rootapp.tryToClose();
                 } else {
                     javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null,
