@@ -620,7 +620,7 @@ public class JRootApp extends JPanel implements AppView {
         jLabel1.setText("<html><center>POS plus eshte nje program per menaxhimin e pikave te shitjes<br>" +
             "i menduar per touch screen<br>" +
             "Copyright \u00A9 2006-2010 Gjergj Sheldija<br>" +
-            "gjergj.sheldija@gmail.com - Te gjitha te drejtat e rezervuara.<br><br>" +
+            "gjergj.sheldija@acme-tech.net - Te gjitha te drejtat e rezervuara.<br><br>" +
             "--------------------------------------------------------------------------------------------------------<br>" +
             " Kopjimi ose shperndarja e ketij programi ndalohet nga legjislacioni aktual shqiptar<br>" +
             " dhe ndeshkohet ne baze te dispozitave aktuale ligjore.                             <br>" +
