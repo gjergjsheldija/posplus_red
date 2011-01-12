@@ -122,8 +122,8 @@ public class JRootFrame extends javax.swing.JFrame implements AppMessage {
     public int RegistryValue() {
 
         // HKLM\Software\JavaSoft\Prefs\
-        Preferences systemPref = Preferences.systemRoot();
-
+        Preferences systemPref = Preferences.userNodeForPackage(this.getClass());
+        
         int timesrun = systemPref.getInt(PREF_KEY,TIMES_RUN);
         systemPref.putInt(PREF_KEY, timesrun + 1);
 
