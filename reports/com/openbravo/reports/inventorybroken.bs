@@ -40,7 +40,7 @@ report.setSentence("SELECT " +
                 "JOIN CATEGORIES ON PRODUCTS.CATEGORY = CATEGORIES.ID " +
                 "WHERE STOCKCURRENT.UNITS <= 2 " +
                 "AND ?(QBF_FILTER) " +
-                "ORDER BY CATEGORIES.NAME, PRODUCTS.NAME, STOCKCURRENT.LOCATION");
+                "ORDER BY  STOCKCURRENT.LOCATION, CATEGORIES.NAME, PRODUCTS.NAME ");
 report.addParameter("PRODUCTS.NAME");
 report.addParameter("PRODUCTS.PRICEBUY");
 report.addParameter("PRODUCTS.PRICESELL");
