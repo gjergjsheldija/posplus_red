@@ -47,6 +47,7 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
     private DataLogicSystem m_dlSystem;
 
     private InventoryModel m_InventoryModel = null;
+    private SupplyModel m_SupplyModel = null;
 
     private TicketParser m_TTP;
     /** Creates new form JPanelSupplyReport */
@@ -88,6 +89,7 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
     private void loadData() throws BasicException {
         // LoadData
         m_InventoryModel = InventoryModel.loadInstance(m_App);
+        m_SupplyModel = SupplyModel.loadInstance(m_App);
     }
 
     private void printPayments(String report) {
@@ -110,6 +112,27 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
             }
         }
     }
+
+   private void printPaymentsSupply(String report) {
+
+        String sresource = m_dlSystem.getResourceAsXML(report);
+        if (sresource == null) {
+            MessageInf msg = new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.cannotprintticket"));
+            msg.show(this);
+        } else {
+            try {
+                ScriptEngine script = ScriptFactory.getScriptEngine(ScriptFactory.VELOCITY);
+                script.put("supply", m_SupplyModel);
+                m_TTP.printTicket(script.eval(sresource).toString());
+            } catch (ScriptException e) {
+                MessageInf msg = new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.cannotprintticket"), e);
+                msg.show(this);
+            } catch (TicketPrinterException e) {
+                MessageInf msg = new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.cannotprintticket"), e);
+                msg.show(this);
+            }
+        }
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -120,6 +143,7 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
     private void initComponents() {
 
         m_jPrintInventoryProblem = new javax.swing.JButton();
+        m_jPrintsupplyReport = new javax.swing.JButton();
 
         m_jPrintInventoryProblem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/important.png"))); // NOI18N
         m_jPrintInventoryProblem.setText("Kerkese Per Furnizim");
@@ -129,13 +153,24 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
             }
         });
 
+        m_jPrintsupplyReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/openbravo/images/fileprint.png"))); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pos_messages"); // NOI18N
+        m_jPrintsupplyReport.setText(bundle.getString("Menu.Supply  ")); // NOI18N
+        m_jPrintsupplyReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_jPrintsupplyReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addComponent(m_jPrintInventoryProblem)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(m_jPrintsupplyReport)
+                    .addComponent(m_jPrintInventoryProblem))
                 .addContainerGap(360, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,18 +178,25 @@ public class JPanelInventoryProblem extends  JPanel implements JPanelView, BeanF
             .addGroup(layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(m_jPrintInventoryProblem)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(m_jPrintsupplyReport)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void m_jPrintInventoryProblemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jPrintSupplyReportActionPerformed
-            // print report
-        printPayments("Printer.SupplyReport");
-}//GEN-LAST:event_m_jPrintSupplyReportActionPerformed
+    private void m_jPrintsupplyReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_jPrintsupplyReportActionPerformed
+        // TODO add your handling code here:
+        printPaymentsSupply("Printer.SupplyReport");
+}//GEN-LAST:event_m_jPrintsupplyReportActionPerformed
 
+    private void m_jPrintInventoryProblemActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        printPayments("Printer.SupplyReport");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton m_jPrintInventoryProblem;
+    private javax.swing.JButton m_jPrintsupplyReport;
     // End of variables declaration//GEN-END:variables
 
 }
