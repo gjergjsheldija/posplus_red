@@ -440,11 +440,13 @@ public class JTicketsBagRestaurantMap extends JTicketsBag {
                                     new MessageInf(MessageInf.SGN_WARNING, AppLocal.getIntString("message.tablefull")).show(JTicketsBagRestaurantMap.this);
                                     m_place.setPeople(true);
                                     m_place.getButton().setEnabled(false);
-                                    setActivePlace(null,null);
-                                }
+                                } else {
+                                     setActivePlace(m_place, ticket);
+                                 }
                             }
+                        } else {
+                           setActivePlace(m_place, ticket);
                         }
-                        setActivePlace(m_place, ticket);
                     }
                 } else {
                     // receiving customer.
